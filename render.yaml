@@ -4,7 +4,7 @@ services:
     name: thirukural-api
     runtime: node
     buildCommand: cd packages/server && npm install
-    startCommand: cd packages/server && node index.ts
+    startCommand: cd packages/server && bun run index.ts
     envVars:
       - key: MONGO_USERNAME
         sync: false
