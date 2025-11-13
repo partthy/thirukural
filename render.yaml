@@ -3,7 +3,7 @@ services:
   - type: web
     name: thirukural-api
     runtime: node
-    buildCommand: cd packages/server && npm install
+    buildCommand: cd packages/server && bun install
     startCommand: cd packages/server && bun run index.ts
     envVars:
       - key: MONGO_USERNAME
