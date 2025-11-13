@@ -22,7 +22,7 @@ services:
   # Frontend
   - type: web
     name: thirukural-client
-    runtime: node
+    runtime: static
     region: singapore
     plan: free
     buildCommand: cd packages/client && npm install && npm run build
@@ -30,4 +30,4 @@ services:
     routes:
       - type: rewrite
         source: /api/*
-        destination: https://thirukural-api.onrender.com/*
+        destination: https://thirukural-api.onrender.com/api/*
