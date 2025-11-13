@@ -1,0 +1,33 @@
+services:
+  # Backend API
+  - type: web
+    name: thirukural-api
+    runtime: node
+    region: singapore
+    plan: free
+    buildCommand: cd packages/server && npm install
+    startCommand: cd packages/server && node index.ts
+    envVars:
+      - key: MONGO_USERNAME
+        sync: false
+      - key: MONGO_PASSWORD
+        sync: false
+      - key: MONGO_CLUSTER
+        sync: false
+      - key: MONGO_DATABASE
+        sync: false
+      - key: PORT
+        value: 3000
+
+  # Frontend
+  - type: web
+    name: thirukural-client
+    runtime: node
+    region: singapore
+    plan: free
+    buildCommand: cd packages/client && npm install && npm run build
+    staticPublishPath: ./packages/client/dist
+    routes:
+      - type: rewrite
+        source: /api/*
+        destination: https://thirukural-api.onrender.com/*
