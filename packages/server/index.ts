@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import type { Request, Response } from "express";
 import homePageRoutes from "./routes/homePageRoutes.js";
 import { connectDB } from "./config/db.js";
@@ -8,6 +9,9 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+// Enable CORS for all origins
+app.use(cors());
 
 app.use("/api", homePageRoutes);
 
