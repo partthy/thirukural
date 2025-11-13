@@ -23,7 +23,6 @@ services:
   - type: web
     name: thirukural-client
     runtime: static
-    region: singapore
     plan: free
     buildCommand: cd packages/client && npm install && npm run build
     staticPublishPath: ./packages/client/dist
