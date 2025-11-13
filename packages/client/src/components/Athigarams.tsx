@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../config";
 
 interface Athigaram {
   name: string;
@@ -24,7 +25,7 @@ const Athigarams = () => {
   useEffect(() => {
     const fetchAthigarams = async () => {
       try {
-        const response = await fetch("/api/alldata");
+        const response = await fetch(`${API_BASE_URL}/api/alldata`);
         const data = await response.json();
 
         // Find the specific paal and iyal

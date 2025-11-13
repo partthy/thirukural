@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../config";
 
 interface Iyal {
   name: string;
@@ -16,7 +17,7 @@ const Paals = () => {
 
   useEffect(() => {
     try {
-      fetch("/api/alldata")
+      fetch(`${API_BASE_URL}/api/alldata`)
         .then((res) => res.json())
         .then((data) => {
           console.log("Received Data: ", data);

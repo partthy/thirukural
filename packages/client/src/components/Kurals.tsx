@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../config";
 
 interface Kural {
   number: number;
@@ -25,7 +26,7 @@ const Kurals = () => {
     const fetchKurals = async () => {
       try {
         const response = await fetch(
-          `/api/athigarams/${encodeURIComponent(athigaramName || "")}`
+          `${API_BASE_URL}/api/athigarams/${encodeURIComponent(athigaramName!)}`
         );
         const data = await response.json();
         setKurals(data);
